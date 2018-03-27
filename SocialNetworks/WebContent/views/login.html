@@ -1,0 +1,28 @@
+<!-- -{{error.message}}-> loginfailed..invalid email/password
+                        ->Unauthorized access..
+                        {{message}}->Successfully loggedout
+                         -->
+
+     <div id="login-box">
+	 <span style="color: red" class="error">{{error.message}}</span> 
+	 <span class="msg">{{message}}</span>
+	<form>
+		<table>
+			<tr>
+				<td>Enter Email:</td>
+				<td><input type="email" ng-model="user.emails"></td>
+			</tr>
+
+			<tr>
+				<td>Enter Password:</td>
+				<td><input type="password" ng-model="user.password"></td>
+			</tr>
+
+
+			<tr>
+				<td><input type="Submit" ng-click="login(user)"></td>
+
+			</tr>
+		</table>
+	</form>
+</div>

@@ -1,0 +1,44 @@
+<div class="panel-panel-info">
+	<div class="row" style="600px">
+
+	<div class="panel-heading">
+		{{blog.blogTitle}}<br> <b>Posted On: </b> {{blog.postedOn |
+		date:'medium'}}<br> <b>Posted By: </b>
+		{{blog.postedBy.firstname}} &nbsp; {{blog.postedBy.lastname}}<br>
+	</div>
+	<div class="panel-body">
+	<p ng-bind-html="content"></p>
+		<br>
+		<div>
+			<a><span class="glyphicon glyphicon-thumbs-up"
+				ng-class="isLiked?'liked':'default'" ng-click="updateLikes(blog.id)"></span></a>
+			{{blog.likes}} likes
+		</div>
+
+		<div>
+			{{exceptiononMessage.message}}
+			<textarea rows="1" cols="10" ng-model="commentTxt"></textarea>
+			<button type="button" class="btn-btn-primary"
+				ng-click="addComment(blog,commentTxt)">Post Comment</button>
+			<br> <a ng-click="onShowComments()">{{comments.lengths}}
+				comments</a>
+			<ul style="list-style: none" ng-show="showComments">
+				<li ng-repeat="comment in comments | OrderBy:'-commentedOn'">
+					{{comment.commentTxt}} &nbsp;<b>commented By</b>
+					{{comment.commentBy.firstname}} &nbsp;<b>commented on</b>{{comment.commentedON
+					| date:'yyyy:MM:dd'}}
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- updateLikes(blog.id)
+insert into blogPostLikes values(?,blogpostid,email)
+update blogPost setlikes =likes + 1 where id=?
+
+(or)
+delete from blogPostLikes where id=?
+update blogPost set likes=likes-1 where id=?
+
+
+ -->

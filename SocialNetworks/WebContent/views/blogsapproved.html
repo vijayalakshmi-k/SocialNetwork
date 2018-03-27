@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="row" style="width: 600px">
+
+		<div class="panel panel-info">
+			<div class="panel-heading">Blog Posts</div>
+
+			<div class="panel-body">
+				<div ng-repeat="blog in blogsApproved"><br><br>
+              <b><a href="#/getblog/{{blog.id}}">{{blog.blogTitle}}</a></b>
+				</div>
+				<b>Posted On :</b> {{blog.postedOn | date:'medium'}} <br> <b>Posted
+					By: </b>{{blog.postedBy.firstname}} &nbsp; {{blog.postedBy.lastname}}<br>
+				<img
+					src="http://localhost:8091/ScocialNetworksMiddle/getimage/{{blog.postedBy.email}}"
+					alt="" height="50px" width="100px">
+				<hr>
+			</div>
+		</div>
+	</div>
+</div>
